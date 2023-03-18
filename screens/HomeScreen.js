@@ -14,13 +14,21 @@ import db from '../config';
 export default class HomeScreen extends Component {
 
   teamA(){
-   db.ref('/').update({
-     'teamA':1
-   })
+    //update vote values of Team A in the database
+    db.ref('/').update({
+      'teamA':2
+    })
+    
+    
  }
 
  teamB(){
-   console.log(db);
+   db.ref('/').update({
+     'teamB':2
+   })
+ }
+
+  teamC(){
    db.ref('/').update({
      'teamB':2
    })
@@ -53,6 +61,12 @@ export default class HomeScreen extends Component {
               <Text style={{ fontSize:20}}>Team B</Text>
             </TouchableOpacity>
 
+            <TouchableOpacity
+              style={styles.buttons}
+              onPress ={this.teamC()}>
+              <Text style={{ fontSize:20}}>Team C</Text>
+            </TouchableOpacity>
+
           </View>
         </View>
       </View>
@@ -66,10 +80,10 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   buttons: {
-    backgroundColor:"coral",
+    backgroundColor:"#FFC300",
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 15,
     margin:10,
     width: 150,
